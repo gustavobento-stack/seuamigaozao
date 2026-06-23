@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Básico & Favicon -->
+    <title>Seu Amigãozão - Vídeos Mágicos e Surpresas Inesquecíveis para Crianças</title>
+    <meta name="description" content="Surpreenda seu filho com um vídeo mágico onde seu herói ou princesa favorita fala diretamente com ele pelo nome. Em menos de 5 minutos! A partir de R$ 9,90.">
+    <meta name="keywords" content="vídeo personalizado infantil, mensagem homem-aranha, vídeo elsa frozen, presente dia das crianças, recado animado, surpresa para criança, vídeo heróis nome">
+    <meta name="author" content="Seu Amigãozão">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/crxBsO3.png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/crxBsO3.png">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuamigaozao.com.br">
+    <meta property="og:title" content="Seu Amigãozão - Surpresa Inesquecível">
+    <meta property="og:description" content="Em 5 minutos, criamos um vídeo mágico onde o personagem favorito do seu filho o chama pelo nome!">
+    <meta property="og:image" content="https://i.imgur.com/crxBsO3.png">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Seu Amigãozão - Vídeos Personalizados">
+    <meta name="twitter:description" content="A reação do seu filho ao ver o herói favorito chamá-lo pelo nome não tem preço. Crie agora!">
+    <meta name="twitter:image" content="https://i.imgur.com/crxBsO3.png">
+
+    <!-- Schema.org / JSON-LD para o Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Seu Amigãozão",
+      "url": "https://seuamigaozao.com.br",
+      "logo": "https://i.imgur.com/crxBsO3.png",
+      "description": "Plataforma de criação instantânea de vídeos personalizados com vozes e imagens de personagens infantis.",
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.90",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Outfit (Títulos) e DM Sans (Textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"DM Sans"', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            yellow: '#FBBF24',
+                            pink: '#EC4899',
+                            blue: '#3B82F6',
+                            green: '#10B981',
+                            dark: '#0f172a'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 35s linear infinite', /* Velocidade ajustada */
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-pill {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+        }
+        
+        .btn-pill:active {
+            transform: scale(0.96);
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
+        }
+
+        .selectable-card {
+            transition: all 0.2s ease;
+        }
+
+        .selectable-card.selected {
+            border-color: #8B5CF6;
+            background-color: #F5F3FF;
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+            transform: translateY(-2px);
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Marquee Updates for Spacing and Hover Pause */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 1rem;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            padding: 1rem 0; /* Padding extra para as sombras no hover não cortarem */
+        }
+        
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+        
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            justify-content: flex-start;
+            min-width: max-content;
+            gap: 1rem;
+            padding-right: 1rem; /* Para que o loop case perfeitamente com o gap */
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(-8px); }
+        }
+        .error-shake {
+            animation: shake 0.4s ease-in-out;
+            border-color: #ef4444 !important;
+            background-color: #fef2f2 !important;
+        }
+        
+        select.custom-picker {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* Efeito Líquido Barra de Progresso */
+        .progress-liquid {
+            background: linear-gradient(90deg, #8B5CF6, #EC4899, #FBBF24, #8B5CF6);
+            background-size: 300% 100%;
+            animation: liquidFlow 2s linear infinite;
+        }
+        .progress-liquid::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                -45deg,
+                rgba(255, 255, 255, 0.3) 0,
+                rgba(255, 255, 255, 0.3) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            background-size: 28px 28px;
+            animation: moveStripes 1s linear infinite;
+            border-radius: 9999px;
+        }
+        @keyframes liquidFlow {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+        @keyframes moveStripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 28px 0; }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Testimonial Video Specifics */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- URGENCY BANNER & HEADER -->
+    <div class="sticky top-0 z-[60] w-full flex flex-col shadow-sm">
+        <div class="w-full bg-gradient-to-r from-red-500 to-rose-500 text-white text-center py-2.5 px-4 text-xs md:text-sm font-bold tracking-wide flex items-center justify-center gap-2">
+            <i data-lucide="timer" class="w-4 h-4 animate-pulse"></i>
+            <span>Oferta expira em <span id="top-timer" class="font-mono text-base ml-1">15:00</span> — Garanta seu preço!</span>
+        </div>
+
+        <div id="quiz-header" class="hidden bg-white/95 backdrop-blur-md border-b border-slate-200 w-full">
+            <div class="max-w-2xl mx-auto flex flex-col">
+                <div class="flex items-center justify-between px-4 py-3">
+                    <button onclick="goBack()" class="text-slate-500 hover:text-brand-purple flex items-center justify-center p-2 -ml-2 rounded-full hover:bg-slate-100 transition-colors">
+                        <i data-lucide="arrow-left" class="w-6 h-6"></i>
+                    </button>
+                    <img src="https://i.imgur.com/crxBsO3.png" alt="Seu Amigãozão" class="h-12 md:h-16 object-contain drop-shadow-sm">
+                    <div class="w-10"></div> 
+                </div>
+                
+                <div class="w-full px-4 pb-4 mt-1">
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div id="progress-bar" class="bg-gradient-to-r from-brand-purple to-brand-pink h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="w-full flex-1 flex flex-col relative pb-10">
+
+        <!-- ========================================== -->
+        <!-- STEP 0: HERO (Landing Page) -->
+        <!-- ========================================== -->
+        <section id="step-0" class="step-content flex flex-col items-center w-full animate-fade-in-up">
+            
+            <div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-12 md:pt-16 flex flex-col md:flex-row items-center justify-between gap-12">
+                
+                <div class="flex-1 text-center md:text-left z-10">
+                    <img src="https://i.imgur.com/crxBsO3.png" alt="Seu Amigãozão" class="h-16 md:h-24 object-contain drop-shadow-sm mb-8 mx-auto md:mx-0">
+                    
+                    <div class="inline-flex items-center gap-2 bg-brand-pink/10 border border-brand-pink/20 text-brand-pink px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                        <i data-lucide="gift" class="w-4 h-4"></i> Especial Dia das Crianças
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-brand-dark leading-tight tracking-tight mb-6">
+                        O personagem favorito do seu filho <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-pink">falando com ele.</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-lg mx-auto md:mx-0 font-medium">
+                        Em menos de 5 minutos, criamos um vídeo mágico onde o herói ou princesa da sua criança chama ela pelo nome.
+                    </p>
+
+                    <button onclick="startQuiz()" class="btn-pill w-full md:w-auto bg-brand-purple text-white font-heading font-bold text-xl px-8 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600 hover:-translate-y-1">
+                        Criar Vídeo Mágico
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <div class="mt-5 flex items-center justify-center md:justify-start gap-4 text-sm text-slate-500 font-medium">
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4 text-brand-purple"></i> Fica pronto na hora</span>
+                        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4 text-brand-green"></i> 100% Seguro</span>
+                    </div>
+                </div>
+
+                <div class="relative w-[260px] md:w-[300px] flex-shrink-0 z-10">
+                    <div class="aspect-[9/16] rounded-[2rem] overflow-hidden shadow-2xl border-[6px] border-white bg-slate-900 relative">
+                        <video id="hero-video" src="https://i.imgur.com/WjS7Lkw.mp4" autoplay loop muted playsinline webkit-playsinline class="w-full h-full object-cover"></video>
+                        
+                        <div id="sound-hint" class="absolute bottom-6 right-[4.5rem] bg-brand-purple text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg pointer-events-none animate-bounce">
+                            Toque para ouvir!
+                            <div class="absolute top-1/2 -right-1 w-2 h-2 bg-brand-purple rotate-45 -translate-y-1/2"></div>
+                        </div>
+
+                        <button onclick="toggleVideoVolume()" id="volume-btn" class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white p-3 rounded-full hover:bg-black/70 transition-colors z-20 flex items-center justify-center">
+                            <i data-lucide="volume-x" class="w-5 h-5 pointer-events-none"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-brand-yellow/40 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-purple/40 rounded-full blur-3xl -z-10"></div>
+                </div>
+
+            </div>
+
+            <!-- Video Testimonials -->
+            <div class="w-full max-w-6xl mx-auto px-4 py-16 reveal-on-scroll">
+                <div class="text-center mb-12">
+                    <span class="text-brand-pink font-bold text-xs tracking-widest uppercase bg-brand-pink/10 px-4 py-1.5 rounded-full inline-block mb-3">Reações Reais</span>
+                    <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-brand-dark tracking-tight">A magia acontece 🥹</h2>
+                    <p class="text-slate-500 mt-4 font-medium text-lg">Toque nos vídeos para assistir e se emocionar</p>
+                </div>
+                
+                <div class="flex overflow-x-auto pb-8 -mx-4 px-4 gap-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:px-0 md:gap-8 max-w-5xl mx-auto snap-x snap-mandatory hide-scrollbar">
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/P3RaPgm.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/RtD6ubK.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/RKNWprp.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/RcqbKr1.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/Cwfe2jc.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-testimonial flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-auto snap-center relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-slate-900 shadow-xl border-[4px] border-white cursor-pointer group hover:border-brand-purple transition-all duration-300 md:hover:-translate-y-2">
+                        <video src="https://i.imgur.com/ljHoJiY.mp4" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300" playsinline webkit-playsinline preload="metadata" loop></video>
+                        <div class="play-overlay absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-all duration-300 z-20">
+                            <div class="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-purple shadow-[0_0_20px_rgba(139,92,246,0.5)] group-hover:scale-110 transition-transform">
+                                <i data-lucide="play" class="w-8 h-8 ml-1 fill-current pointer-events-none"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Como Funciona / Por que Escolher -->
+            <div class="w-full bg-white border-y border-slate-100 py-16">
+                <div class="w-full max-w-6xl mx-auto px-4 mb-20 reveal-on-scroll">
+                    <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-center mb-12 text-brand-dark">Como funciona?</h2>
+                    <div class="grid md:grid-cols-3 gap-8 relative">
+                        <!-- Line connector for desktop -->
+                        <div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-slate-100 z-0"></div>
+                        
+                        <div class="text-center relative z-10">
+                            <div class="w-16 h-16 bg-brand-purple text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg ring-8 ring-white">1</div>
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Escolha o Personagem</h3>
+                            <p class="text-slate-600">Selecione o herói ou princesa favorita da sua criança.</p>
+                        </div>
+                        <div class="text-center relative z-10">
+                            <div class="w-16 h-16 bg-brand-pink text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg ring-8 ring-white">2</div>
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Personalize</h3>
+                            <p class="text-slate-600">Conte os interesses e as conquistas para a inteligência artificial.</p>
+                        </div>
+                        <div class="text-center relative z-10">
+                            <div class="w-16 h-16 bg-brand-yellow text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg ring-8 ring-white">3</div>
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Receba em Minutos</h3>
+                            <p class="text-slate-600">Pronto! O vídeo mágico chegará direto no seu WhatsApp e E-mail.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-6xl mx-auto px-4 reveal-on-scroll">
+                    <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-center mb-12 text-brand-dark">Por que escolher a gente?</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-center hover:-translate-y-1 transition-transform">
+                            <i data-lucide="zap" class="w-10 h-10 text-brand-yellow mx-auto mb-4"></i>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">Entrega Instantânea</h3>
+                            <p class="text-slate-500 text-sm">Sem esperas de dias. O vídeo é gerado em menos de 5 minutos pela nossa IA.</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-center hover:-translate-y-1 transition-transform">
+                            <i data-lucide="mic" class="w-10 h-10 text-brand-purple mx-auto mb-4"></i>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">Vozes Realistas</h3>
+                            <p class="text-slate-500 text-sm">Tecnologia de ponta que clona a voz e a entonação idêntica ao personagem original.</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-center hover:-translate-y-1 transition-transform">
+                            <i data-lucide="heart" class="w-10 h-10 text-brand-pink mx-auto mb-4"></i>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">100% Personalizado</h3>
+                            <p class="text-slate-500 text-sm">A mensagem não é genérica. O personagem cita a cidade, a idade e as conquistas reais.</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-center hover:-translate-y-1 transition-transform">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-brand-green mx-auto mb-4"></i>
+                            <h3 class="font-bold text-lg mb-2 text-slate-800">Garantia Total</h3>
+                            <p class="text-slate-500 text-sm">Satisfação garantida ou seu dinheiro de volta em até 7 dias sem burocracia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Testimonials Marquee -->
+            <div class="w-full bg-slate-50 border-y border-slate-200 py-12 overflow-hidden reveal-on-scroll">
+                <div class="max-w-6xl mx-auto px-4 mb-8">
+                    <h3 class="font-heading font-bold text-center text-slate-400 text-sm tracking-widest uppercase">A reação deles não tem preço</h3>
+                </div>
+                
+                <div class="marquee-container">
+                    <div class="marquee-content animate-marquee">
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                        <!-- Duplicated to guarantee enough width for 100% smooth loop on large monitors -->
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate sequence to animate seamlessly -->
+                    <div class="marquee-content animate-marquee" aria-hidden="true">
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white border-2 border-slate-100 p-6 rounded-3xl w-80 flex-shrink-0 hover:scale-[1.03] hover:shadow-xl hover:-translate-y-2 hover:border-brand-purple transition-all duration-300 cursor-pointer">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-5 leading-relaxed">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="w-full max-w-3xl mx-auto px-4 py-16 reveal-on-scroll">
+                <h2 class="font-heading text-3xl font-bold text-center mb-10 text-brand-dark">Dúvidas Frequentes</h2>
+                <div class="space-y-3">
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Quanto tempo demora para ficar pronto?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            É super rápido! Nossa inteligência artificial cria o vídeo personalizado em menos de 5 minutos após a confirmação do pedido.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            O vídeo é realmente personalizado?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Sim! O personagem vai falar o nome exato da criança, mencionar a idade dela, seus interesses (como jogar futebol ou desenhar) e parabenizá-la por uma conquista recente que você escolher.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Quais personagens estão disponíveis?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Temos uma vasta seleção, incluindo heróis da Marvel (Homem-Aranha, Capitão América), princesas da Disney, Patrulha Canina, Peppa Pig, personagens de Minecraft, Dinossauros e muito mais. Você escolhe durante o processo!
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Como recebo o vídeo?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Você receberá um link seguro diretamente no seu e-mail e WhatsApp. A partir desse link, você pode assistir e baixar o vídeo no seu celular para mostrar à criança.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Posso pedir para mais de um filho no mesmo vídeo?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Para garantir a melhor emoção, cada vídeo é focado em apenas uma criança. Recomendamos fazer um pedido separado para cada filho, assim cada um tem seu momento especial de atenção do personagem.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Funciona para crianças de que idade?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            É perfeito para crianças entre 2 e 12 anos. O tom da mensagem se adapta automaticamente de acordo com a faixa etária que você selecionar no questionário.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            O pagamento é seguro?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Totalmente. Processamos todos os pagamentos (Pix e Cartão de Crédito) através das plataformas mais seguras e criptografadas do Brasil.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            E se meu filho não gostar? (Garantia)
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Acreditamos tanto na magia do nosso serviço que oferecemos Garantia Incondicional de 7 dias. Se por qualquer motivo não for a emoção que você esperava, devolvemos 100% do seu dinheiro.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 1: PACOTE -->
+        <!-- ========================================== -->
+        <section id="step-1" class="step-content hidden flex-col w-full max-w-lg mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">Escolha o pacote</h2>
+            <p class="text-center text-slate-500 mb-8">Selecione para começar a criar a surpresa</p>
+            
+            <div class="flex flex-col gap-5 mb-8">
+                <button id="plan-audio" onclick="selectPlan('audio')" class="plan-btn btn-pill bg-white border-2 border-slate-200 p-5 rounded-2xl flex items-center justify-between text-left transition-all">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2"><i data-lucide="mic" class="w-5 h-5 text-brand-purple"></i> Áudio Mágico</h3>
+                        <p class="text-slate-500 text-sm">Apenas mensagem de voz</p>
+                    </div>
+                    <span class="font-black text-xl text-slate-800">R$ 9,90</span>
+                </button>
+
+                <div class="relative w-full transform hover:-translate-y-1 transition-transform">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-yellow text-brand-dark px-3 py-0.5 rounded-full text-[10px] font-black tracking-widest whitespace-nowrap z-10 shadow-sm pointer-events-none">MAIS ESCOLHIDO</div>
+                    <button id="plan-video" onclick="selectPlan('video')" class="plan-btn btn-pill bg-white border-2 border-slate-200 p-5 rounded-2xl flex items-center justify-between text-left transition-all w-full relative">
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2"><i data-lucide="video" class="w-5 h-5 text-brand-yellow"></i> Vídeo Mágico</h3>
+                            <p class="text-slate-500 text-sm">Imagem animada + Voz</p>
+                        </div>
+                        <span class="font-black text-xl text-slate-800">R$ 19,90</span>
+                    </button>
+                </div>
+
+                <button id="plan-premium" onclick="selectPlan('premium')" class="plan-btn btn-pill bg-white border-2 border-slate-200 p-5 rounded-2xl flex items-center justify-between text-left transition-all">
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2"><i data-lucide="crown" class="w-5 h-5 text-yellow-500"></i> Pacote Premium</h3>
+                        <p class="text-slate-500 text-sm">A experiência completa</p>
+                    </div>
+                    <span class="font-black text-xl text-slate-800">R$ 29,90</span>
+                </button>
+            </div>
+
+            <button onclick="nextStep(2, validatePlan)" class="btn-pill w-full max-w-md mx-auto bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                Continuar
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 2: QUALIDADE -->
+        <!-- ========================================== -->
+        <section id="step-2" class="step-content hidden flex-col w-full max-w-lg mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">Qualidade do vídeo</h2>
+            <p class="text-center text-slate-500 mb-8 font-medium">Escolha a resolução dos seus vídeos mágicos</p>
+            
+            <div class="flex flex-col gap-5 mb-8">
+                <button id="quality-normal" onclick="selectQuality('normal')" class="quality-btn btn-pill bg-white border-2 border-slate-200 p-5 rounded-2xl flex items-center justify-between text-left transition-all relative overflow-hidden group">
+                    <div class="flex items-center gap-4 relative z-10">
+                        <div class="text-3xl">📹</div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-lg">Qualidade Normal</h3>
+                            <p class="text-slate-500 text-sm font-medium">Padrão</p>
+                        </div>
+                    </div>
+                    <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-bold relative z-10">Incluído</span>
+                </button>
+
+                <div class="relative w-full transform hover:-translate-y-1 transition-transform">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-purple text-white px-3 py-0.5 rounded-full text-[10px] font-black tracking-widest whitespace-nowrap z-10 shadow-sm pointer-events-none">RECOMENDADO</div>
+                    <button id="quality-ultra" onclick="selectQuality('ultra')" class="quality-btn btn-pill bg-white border-2 border-slate-200 p-5 rounded-2xl flex items-center justify-between text-left transition-all w-full relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-brand-purple/5 to-brand-pink/5 opacity-0 group-[.border-brand-purple]:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-4 relative z-10">
+                            <div class="text-3xl">✨</div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 text-lg group-[.border-brand-purple]:text-brand-purple transition-colors">Qualidade Ultra</h3>
+                                <p class="text-slate-500 text-sm font-medium">Alta definição</p>
+                            </div>
+                        </div>
+                        <span class="bg-brand-purple text-white px-3 py-1 rounded-full text-xs font-bold relative z-10">+R$ 5,98</span>
+                    </button>
+                </div>
+            </div>
+            
+            <button onclick="nextStep(3, validateQuality)" class="btn-pill w-full max-w-md mx-auto bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                Continuar
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 3: NOME -->
+        <!-- ========================================== -->
+        <section id="step-3" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">Quem vai receber essa surpresa?</h2>
+            <p class="text-center text-slate-500 mb-8">Digite o nome ou apelido da criança</p>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                <input type="text" id="input-name" placeholder="Ex: Lucas, Sofia..." class="w-full px-5 py-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none transition-all text-xl mb-6 font-bold text-center text-slate-800 placeholder:text-slate-400 placeholder:font-normal">
+                
+                <button onclick="nextStep(4, validateName)" class="btn-pill w-full bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                    Continuar
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 4: IDADE -->
+        <!-- ========================================== -->
+        <section id="step-4" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">Qual a idade <span class="dyn-name-de text-brand-purple">da criança</span>?</h2>
+            <p class="text-center text-slate-500 mb-8">Adaptamos o tom da voz de acordo com a idade</p>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                <div class="relative mb-6">
+                    <select id="input-age" class="custom-picker w-full px-5 py-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none transition-all text-xl font-bold text-center text-slate-800 cursor-pointer">
+                        <option value="" disabled selected>Selecione a idade</option>
+                        <option value="1 ano">1 ano</option>
+                        <option value="2 anos">2 anos</option>
+                        <option value="3 anos">3 anos</option>
+                        <option value="4 anos">4 anos</option>
+                        <option value="5 anos">5 anos</option>
+                        <option value="6 anos">6 anos</option>
+                        <option value="7 anos">7 anos</option>
+                        <option value="8 anos">8 anos</option>
+                        <option value="9 anos">9 anos</option>
+                        <option value="10 anos">10 anos</option>
+                        <option value="11 anos">11 anos</option>
+                        <option value="12 anos">12 anos</option>
+                        <option value="13 anos">13 anos</option>
+                        <option value="14 anos">14 anos</option>
+                        <option value="15 anos">15 anos</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-5 flex items-center pointer-events-none">
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400"></i>
+                    </div>
+                </div>
+                
+                <button onclick="nextStep(5, validateAge)" class="btn-pill w-full bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                    Continuar
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 5: GÊNERO -->
+        <!-- ========================================== -->
+        <section id="step-5" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">É menino ou menina?</h2>
+            <p class="text-center text-slate-500 mb-8">Para o personagem falar certinho</p>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="selectOption('gender', 'M', 6)" class="selectable-card btn-pill bg-white border-2 border-slate-200 p-6 rounded-3xl flex flex-col items-center justify-center gap-3 relative hover:border-blue-400 group">
+                    <span class="text-5xl group-hover:scale-110 transition-transform">👦</span>
+                    <span class="font-bold text-slate-700 text-lg">Menino</span>
+                </button>
+                <button onclick="selectOption('gender', 'F', 6)" class="selectable-card btn-pill bg-white border-2 border-slate-200 p-6 rounded-3xl flex flex-col items-center justify-center gap-3 relative hover:border-pink-400 group">
+                    <span class="text-5xl group-hover:scale-110 transition-transform">👧</span>
+                    <span class="font-bold text-slate-700 text-lg">Menina</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 6: PERSONAGEM -->
+        <!-- ========================================== -->
+        <section id="step-6" class="step-content hidden flex-col w-full pt-6 pb-20 animate-fade-in-up">
+            <div class="px-4 text-center max-w-2xl mx-auto w-full">
+                <h2 class="font-heading text-3xl font-extrabold mb-2 text-brand-dark">Quem vai gravar o vídeo?</h2>
+                <p class="text-slate-500 mb-6">Escolha o favorito <span class="dyn-name-de text-brand-purple font-bold">da criança</span></p>
+                
+                <div class="sticky top-[72px] md:top-[88px] bg-[#f8fafc] pt-2 pb-4 z-20">
+                    <div class="relative max-w-xl mx-auto">
+                        <input type="text" id="char-search" onkeyup="filterCharacters()" placeholder="Buscar personagem ou desenho..." class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white border border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none shadow-sm transition-all text-slate-700 font-medium placeholder:text-slate-400">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="characters-list-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-4 max-w-5xl mx-auto w-full mt-2">
+                <!-- Cards renderizados via JS -->
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 7: INTERESSES -->
+        <!-- ========================================== -->
+        <section id="step-7" class="step-content hidden flex-col w-full max-w-2xl mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">O que <span class="dyn-art-name text-brand-purple font-bold">a criança</span> adora fazer?</h2>
+            <p class="text-center text-slate-500 mb-8">Selecione opções ou digite abaixo</p>
+            
+            <div class="flex flex-wrap gap-3 justify-center mb-8">
+                <button type="button" onclick="toggleInterest(this, 'Jogar futebol')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">⚽ Jogar futebol</button>
+                <button type="button" onclick="toggleInterest(this, 'Desenhar')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🖍️ Desenhar</button>
+                <button type="button" onclick="toggleInterest(this, 'Videogame')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🎮 Videogame</button>
+                <button type="button" onclick="toggleInterest(this, 'Dançar')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">💃 Dançar</button>
+                <button type="button" onclick="toggleInterest(this, 'Animais')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🐶 Animais</button>
+                <button type="button" onclick="toggleInterest(this, 'Doces e Chocolate')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🍫 Doces</button>
+                <button type="button" onclick="toggleInterest(this, 'Ler histórias')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">📚 Ler histórias</button>
+                <button type="button" onclick="toggleInterest(this, 'Brincar de carrinho')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🏎️ Carrinhos</button>
+                <button type="button" onclick="toggleInterest(this, 'Andar de bicicleta')" class="interest-btn btn-pill bg-white border-2 border-slate-200 px-6 py-3 rounded-full font-bold text-slate-600">🚲 Bicicleta</button>
+            </div>
+
+            <!-- CAMPO PARA ESCREVER OUTRO INTERESSE -->
+            <div class="max-w-md mx-auto w-full mb-10">
+                <input type="text" id="input-custom-interest" placeholder="Outro? Escreva aqui (ex: Soltar pipa)" class="w-full px-5 py-4 rounded-2xl bg-white border-2 border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none transition-all text-base font-medium text-slate-800 placeholder:text-slate-400 shadow-sm">
+            </div>
+
+            <button onclick="nextStep(8, validateInterests)" class="btn-pill w-full max-w-md mx-auto bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                Continuar
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 8: CONQUISTA -->
+        <!-- ========================================== -->
+        <section id="step-8" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">Qual a maior conquista recente?</h2>
+            <p class="text-center text-slate-500 mb-8">O personagem vai parabenizar por isso!</p>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                <textarea id="input-achievement" rows="3" placeholder="Ex: Tirou nota 10 na escola, aprendeu a ler, perdeu o primeiro dentinho..." class="w-full px-5 py-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none transition-all text-base mb-6 resize-none font-medium text-slate-800 placeholder:text-slate-400"></textarea>
+                
+                <button onclick="nextStep(9, validateAchievement)" class="btn-pill w-full bg-brand-purple text-white font-heading font-bold text-lg py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600">
+                    Continuar
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 9: CIDADE -->
+        <!-- ========================================== -->
+        <section id="step-9" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 pt-10 animate-fade-in-up">
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-2 text-brand-dark">De qual cidade vocês são?</h2>
+            <p class="text-center text-slate-500 mb-8">Isso deixa o vídeo muito mais realista!</p>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center">
+                <input type="text" id="input-city" placeholder="Ex: São Paulo, SP" class="w-full px-5 py-4 rounded-2xl bg-slate-50 border-2 border-slate-200 focus:border-brand-purple focus:ring-4 focus:ring-brand-purple/10 outline-none transition-all text-xl mb-6 font-bold text-center text-slate-800 placeholder:text-slate-400 placeholder:font-normal">
+                
+                <button onclick="startGeneration(false)" class="btn-pill w-full bg-brand-yellow text-brand-dark font-heading font-bold text-xl py-4 rounded-full flex items-center justify-center gap-2 hover:bg-yellow-400 mb-4">
+                    <i data-lucide="wand-2" class="w-5 h-5"></i>
+                    Gerar Surpresa Mágica!
+                </button>
+
+                <button onclick="skipCity()" type="button" class="text-sm font-bold text-slate-400 hover:text-slate-600 underline underline-offset-4 py-2">
+                    Não quero informar a cidade
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 10: LOADING / GERAÇÃO -->
+        <!-- ========================================== -->
+        <section id="step-10" class="step-content hidden flex-col w-full max-w-md mx-auto px-4 items-center justify-center py-20">
+            
+            <div class="relative w-32 h-32 mb-10 flex items-center justify-center">
+                <div class="absolute inset-0 bg-brand-purple rounded-full opacity-20 animate-ping"></div>
+                <div class="absolute inset-2 bg-brand-pink rounded-full opacity-40 animate-pulse-slow"></div>
+                <i data-lucide="wand-2" class="w-12 h-12 text-brand-purple z-10 animate-bounce"></i>
+            </div>
+
+            <h2 class="font-heading text-3xl font-extrabold text-center mb-8 text-brand-dark">A mágica está acontecendo...</h2>
+            
+            <div class="w-full bg-slate-200 rounded-full h-4 mb-10 relative overflow-hidden">
+                <div id="gen-progress" class="progress-liquid h-full rounded-full w-0 relative shadow-inner transition-all duration-[5000ms] ease-linear"></div>
+            </div>
+
+            <div class="space-y-5 w-full pl-4">
+                <div class="gen-step hidden flex items-center gap-4 text-lg font-bold text-slate-600">
+                    <div class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div>
+                    <span>Conectando com universo...</span>
+                </div>
+                <div class="gen-step hidden flex items-center gap-4 text-lg font-bold text-slate-600">
+                    <div class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div>
+                    <span>Criando roteiro do <span class="dyn-char text-brand-purple">Personagem</span>...</span>
+                </div>
+                <div class="gen-step hidden flex items-center gap-4 text-lg font-bold text-slate-600">
+                    <div class="w-6 h-6 rounded-full bg-brand-green text-white flex items-center justify-center"><i data-lucide="check" class="w-4 h-4"></i></div>
+                    <span>Ajustando voz especial...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- STEP 11: RESULTADO / VENDAS -->
+        <!-- ========================================== -->
+        <section id="step-11" class="step-content hidden flex-col w-full px-4 pt-10 pb-40 animate-fade-in-up">
+            
+            <div class="text-center mb-12 max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-green-100 border border-green-200 text-green-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                    <i data-lucide="party-popper" class="w-4 h-4"></i> Roteiro Mágico Concluído!
+                </div>
+                <h1 class="font-heading text-4xl md:text-5xl font-extrabold text-brand-dark mb-4 leading-tight tracking-tight">
+                    Pronto! O recado do <span class="dyn-char text-brand-purple"></span> ficou incrível.
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 font-medium">
+                    Nossa inteligência artificial preparou uma mensagem exclusiva baseada em tudo que você contou.
+                </p>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 text-left relative">
+                    <div class="absolute -top-3 -left-3 bg-brand-yellow text-brand-dark font-heading font-black px-4 py-1 rounded-lg shadow-md transform -rotate-3 text-sm">Prévia Confidencial</div>
+                    <p class="text-slate-700 font-medium italic leading-relaxed pt-2 text-lg">
+                        "Oi <span class="dyn-name-colored font-bold"></span>! Aqui é o <span class="dyn-char font-bold"></span>!<br><br>
+                        Fiquei sabendo que <span class="dyn-city-text">aí em <span class="dyn-city font-bold"></span> </span>tem uma criança muito especial que adora <span class="dyn-interests font-bold"></span>.<br><br>
+                        Também me contaram uma novidade muito legal: Parabéns por <span class="dyn-achieve font-bold text-brand-pink"></span>! Estou muito orgulhoso de você..."
+                    </p>
+                    <div class="mt-6 bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-brand-purple rounded-full flex items-center justify-center text-white shrink-0 shadow-md"><i data-lucide="play" class="ml-1 w-6 h-6"></i></div>
+                        <div class="flex-1">
+                            <div class="h-2 bg-slate-200 rounded-full w-full">
+                                <div class="h-2 bg-brand-purple rounded-full w-1/3"></div>
+                            </div>
+                        </div>
+                        <span class="text-sm font-bold text-slate-500">0:00 / 1:20</span>
+                    </div>
+                    
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white/95 rounded-3xl flex items-end justify-center pb-8">
+                        <span class="text-brand-purple font-bold flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg border border-purple-100 text-sm"><i data-lucide="lock" class="w-4 h-4"></i> Desbloqueie abaixo para ouvir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto w-full mb-16 relative">
+                <div class="bg-gradient-to-br from-slate-900 to-brand-dark rounded-[2.5rem] p-10 md:p-14 text-center shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-64 h-64 bg-brand-purple rounded-full mix-blend-screen filter blur-[80px] opacity-40 animate-pulse-slow"></div>
+                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-pink rounded-full mix-blend-screen filter blur-[80px] opacity-30 animate-pulse-slow" style="animation-delay: 1s;"></div>
+                    
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6 shadow-inner border border-white/20">
+                            <i data-lucide="heart" class="text-brand-pink w-8 h-8 fill-current animate-pulse"></i>
+                        </div>
+                        
+                        <h2 class="font-heading text-3xl md:text-4xl font-extrabold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-300">
+                            Você não está comprando um vídeo.
+                        </h2>
+                        <h3 class="font-heading text-2xl font-bold mb-8 text-brand-yellow">
+                            Você está criando uma memória.
+                        </h3>
+                        
+                        <p class="text-slate-300 font-medium text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
+                            Daqui a alguns anos, <span class="dyn-filho text-white font-bold">seu filho(a)</span> provavelmente não vai lembrar do brinquedo de plástico que ganhou hoje.<br><br>
+                            Mas <strong class="text-white">com certeza vai lembrar da sensação mágica</strong> e do coração batendo forte ao ouvir o <span class="dyn-char text-white font-bold">Personagem</span> chamando ele pelo nome.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wrapper para os planos -->
+            <div id="pricing-wrapper" class="max-w-4xl mx-auto w-full">
+                <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-center mb-10 text-brand-dark" id="planos">Escolha a experiência ideal</h2>
+                
+                <div class="grid md:grid-cols-3 gap-6 md:gap-4 lg:gap-6 items-end">
+                    
+                    <div class="bg-white border border-slate-200 rounded-3xl p-6 relative hover:border-brand-purple hover:shadow-xl transition-all h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-slate-800 flex items-center gap-2 mb-1"><i data-lucide="mic" class="text-brand-purple w-5 h-5"></i> Áudio Mágico</h3>
+                            <p class="text-slate-500 text-sm font-medium mb-4">Apenas mensagem de voz</p>
+                            <p class="text-3xl font-heading font-black text-brand-dark mb-6">R$ 9,90</p>
+                            
+                            <ul class="text-slate-600 text-sm font-medium space-y-3 mb-8">
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Voz super realista</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Texto personalizado</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Entrega no WhatsApp</li>
+                            </ul>
+                        </div>
+                        <button onclick="selectPlanAndScroll('audio')" class="btn-pill w-full border-2 border-slate-200 text-slate-700 font-heading font-bold py-3.5 rounded-full hover:border-brand-purple hover:text-brand-purple">
+                            Quero o Áudio
+                        </button>
+                    </div>
+
+                    <div class="bg-brand-purple text-white border border-purple-400 rounded-3xl p-8 relative transform md:-translate-y-4 shadow-2xl h-full flex flex-col justify-between">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-yellow text-brand-dark font-heading font-black px-5 py-1.5 rounded-full text-sm shadow-md whitespace-nowrap">
+                            ⭐ MAIS ESCOLHIDO ⭐
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-2xl font-black flex items-center gap-2 mb-1"><i data-lucide="video" class="text-brand-yellow w-6 h-6"></i> Vídeo Mágico</h3>
+                            <p class="text-purple-200 text-sm font-medium mb-4">Imagem + Voz do Personagem</p>
+                            <p class="text-4xl font-heading font-black text-white mb-6">R$ 19,90</p>
+                            
+                            <ul class="text-white text-sm font-bold space-y-4 mb-8">
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="text-brand-yellow w-5 h-5 shrink-0"></i> Imagem animada falando</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="text-brand-yellow w-5 h-5 shrink-0"></i> História sobre a conquista</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="text-brand-yellow w-5 h-5 shrink-0"></i> Perfeito para ver a reação</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check-circle" class="text-brand-yellow w-5 h-5 shrink-0"></i> Pronto em 5 minutos</li>
+                            </ul>
+                        </div>
+                        <button onclick="selectPlanAndScroll('video')" class="btn-pill w-full bg-brand-yellow text-brand-dark font-heading font-extrabold text-lg py-4 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:bg-yellow-400 hover:scale-[1.02]">
+                            Comprar Vídeo Agora!
+                        </button>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-3xl p-6 relative hover:border-slate-800 hover:shadow-xl transition-all h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-slate-800 flex items-center gap-2 mb-1"><i data-lucide="crown" class="text-yellow-500 w-5 h-5"></i> Pacote Premium</h3>
+                            <p class="text-slate-500 text-sm font-medium mb-4">A experiência completa</p>
+                            <p class="text-3xl font-heading font-black text-brand-dark mb-6">R$ 29,90</p>
+                            
+                            <ul class="text-slate-600 text-sm font-medium space-y-3 mb-8">
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Vídeo Mágico Completo</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Roteiro Estendido (2min)</li>
+                                <li class="flex items-start gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4 shrink-0 mt-0.5"></i> Fila Prioritária VIP</li>
+                            </ul>
+                        </div>
+                        <button onclick="selectPlanAndScroll('premium')" class="btn-pill w-full border-2 border-slate-200 bg-slate-50 text-slate-700 font-heading font-bold py-3.5 rounded-full hover:border-slate-800 hover:text-slate-800 hover:bg-white">
+                            Quero o Premium
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumo do Pedido Dinâmico + Cupom -->
+            <div id="checkout-summary-wrapper" class="max-w-xl mx-auto w-full pt-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-center mb-10 text-brand-dark">Resumo do Pedido</h2>
+                
+                <div class="bg-white border-2 border-brand-purple rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-purple text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl shadow-sm tracking-widest">
+                        OFERTA ATIVA
+                    </div>
+
+                    <!-- Plano -->
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-100">
+                        <div>
+                            <h3 id="summary-plan-title" class="font-bold text-lg text-slate-800">Vídeo Mágico</h3>
+                            <p id="summary-plan-desc" class="text-sm text-slate-500 font-medium">Imagem animada + Voz</p>
+                        </div>
+                        <span id="summary-plan-price" class="font-black text-xl text-slate-800">R$ 19,90</span>
+                    </div>
+
+                    <!-- Qualidade -->
+                    <div id="summary-quality-row" class="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                        <div>
+                            <h3 class="font-bold text-base text-slate-800 flex items-center gap-1.5"><i data-lucide="sparkles" class="w-4 h-4 text-brand-yellow fill-current"></i> Qualidade Ultra</h3>
+                            <p class="text-sm text-slate-500 font-medium">Alta definição</p>
+                        </div>
+                        <span id="summary-quality-price" class="font-bold text-lg text-brand-purple">+R$ 5,98</span>
+                    </div>
+                    
+                    <!-- Campo Cupom -->
+                    <div class="mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-200 flex items-center gap-3">
+                        <i data-lucide="tag" class="w-5 h-5 text-slate-400"></i>
+                        <input type="text" id="input-coupon" placeholder="Possui um cupom?" class="bg-transparent outline-none flex-1 font-bold text-slate-700 uppercase placeholder:normal-case placeholder:font-normal">
+                        <button id="btn-apply-coupon" onclick="applyCoupon()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-4 py-3 rounded-xl transition-colors flex items-center whitespace-nowrap">Aplicar</button>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="flex justify-between items-center mb-8 bg-slate-50 p-4 rounded-2xl">
+                        <span class="text-lg font-bold text-slate-600">Total</span>
+                        <div id="summary-total-price" class="font-black text-3xl md:text-4xl text-brand-dark flex items-center">
+                            R$ 25,88
+                        </div>
+                    </div>
+
+                    <button class="btn-pill w-full bg-brand-yellow text-brand-dark font-heading font-extrabold text-xl md:text-2xl py-4 md:py-5 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.4)] hover:bg-yellow-400 hover:scale-[1.02] hover:shadow-[0_4px_25px_rgba(251,191,36,0.6)] flex items-center justify-center gap-2 transition-all">
+                        Finalizar Compra
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 md:gap-5 mt-8 max-w-2xl mx-auto pt-4">
+                <div class="flex items-center gap-1.5 bg-slate-50 px-4 py-2 rounded-full border border-slate-100 shadow-sm">
+                    <div class="text-green-500"><i data-lucide="clock" class="w-4 h-4"></i></div>
+                    <span class="font-bold text-xs text-slate-600 uppercase tracking-wide">Em 5 min</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-slate-50 px-4 py-2 rounded-full border border-slate-100 shadow-sm">
+                    <div class="text-blue-500"><i data-lucide="shield-check" class="w-4 h-4"></i></div>
+                    <span class="font-bold text-xs text-slate-600 uppercase tracking-wide">Compra Segura</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-slate-50 px-4 py-2 rounded-full border border-slate-100 shadow-sm">
+                    <div class="text-pink-500"><i data-lucide="heart-handshake" class="w-4 h-4"></i></div>
+                    <span class="font-bold text-xs text-slate-600 uppercase tracking-wide">Garantia 7 Dias</span>
+                </div>
+            </div>
+
+            <!-- Social Proof Marquee (Clonado da Inicial) -->
+            <div class="w-full bg-white border-y border-slate-100 py-10 mt-16 overflow-hidden">
+                <div class="max-w-6xl mx-auto px-4 mb-6">
+                    <h3 class="font-heading font-bold text-center text-slate-400 text-sm tracking-widest uppercase">A reação deles não tem preço</h3>
+                </div>
+                
+                <div class="marquee-container">
+                    <div class="marquee-content animate-marquee">
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate -->
+                    <div class="marquee-content animate-marquee" aria-hidden="true">
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"Ele achou que o Homem-Aranha estava ligando de verdade! Assistiu mais de 20 vezes."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">RC</div>
+                                <span class="text-sm font-bold text-slate-700">Rodrigo C., pai do Pedro (5)</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"Minha filha chorou quando a Elsa disse que estava orgulhosa por ela ter aprendido a ler."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 font-bold text-xs">MA</div>
+                                <span class="text-sm font-bold text-slate-700">Mariana A., mãe da Julia (6)</span>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-100 p-5 rounded-2xl w-80 flex-shrink-0">
+                            <div class="flex text-brand-yellow mb-3"><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 text-sm italic mb-4">"O melhor presente de dia das crianças, muito mais legal que qualquer brinquedo caro!"</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-xs">FL</div>
+                                <span class="text-sm font-bold text-slate-700">Fernanda L., mãe do Leo (4)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="w-full max-w-3xl mx-auto px-4 py-16 reveal-on-scroll">
+                <h2 class="font-heading text-3xl font-bold text-center mb-10 text-brand-dark">Dúvidas Frequentes</h2>
+                <div class="space-y-3">
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Quanto tempo demora para ficar pronto?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            É super rápido! Nossa inteligência artificial cria o vídeo personalizado em menos de 5 minutos após a confirmação do pedido.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            O vídeo é realmente personalizado?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Sim! O personagem vai falar o nome exato da criança, mencionar a idade dela, seus interesses (como jogar futebol ou desenhar) e parabenizá-la por uma conquista recente que você escolher.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Quais personagens estão disponíveis?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Temos uma vasta seleção, incluindo heróis da Marvel (Homem-Aranha, Capitão América), princesas da Disney, Patrulha Canina, Peppa Pig, personagens de Minecraft, Dinossauros e muito mais. Você escolhe durante o processo!
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Como recebo o vídeo?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Você receberá um link seguro diretamente no seu e-mail e WhatsApp. A partir desse link, você pode assistir e baixar o vídeo no seu celular para mostrar à criança.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Posso pedir para mais de um filho no mesmo vídeo?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Para garantir a melhor emoção, cada vídeo é focado em apenas uma criança. Recomendamos fazer um pedido separado para cada filho, assim cada um tem seu momento especial de atenção do personagem.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            Funciona para crianças de que idade?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            É perfeito para crianças entre 2 e 12 anos. O tom da mensagem se adapta automaticamente de acordo com a faixa etária que você selecionar no questionário.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            O pagamento é seguro?
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Totalmente. Processamos todos os pagamentos (Pix e Cartão de Crédito) através das plataformas mais seguras e criptografadas do Brasil.
+                        </div>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center focus:outline-none">
+                            E se meu filho não gostar? (Garantia)
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                        </button>
+                        <div class="hidden px-5 pb-5 text-slate-600 text-sm border-t border-slate-50 pt-4 leading-relaxed">
+                            Acreditamos tanto na magia do nosso serviço que oferecemos Garantia Incondicional de 7 dias. Se por qualquer motivo não for a emoção que você esperava, devolvemos 100% do seu dinheiro.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- GLOBAL FOOTER -->
+    <footer id="global-footer" class="w-full text-center pt-8 pb-8 mt-auto text-slate-400 text-xs md:text-sm bg-white border-t border-slate-200 z-10 relative">
+        <p>&copy; 2026 Seu Amigãozão. Todos os direitos reservados.</p>
+        <p class="mt-1 text-[10px]">Transformando momentos comuns em memórias inesquecíveis.</p>
+    </footer>
+
+    <!-- Sticky Bottom CTA for Vendas -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full p-4 md:p-5 bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-[0_-15px_30px_rgba(0,0,0,0.08)] hidden z-40 transform translate-y-full transition-transform duration-500 rounded-t-3xl">
+        <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
+            <div class="hidden sm:flex flex-col">
+                <p class="text-sm font-bold text-slate-800 flex items-center gap-1"><i data-lucide="sparkles" class="w-4 h-4 text-brand-purple"></i> Surpresa para <span class="dyn-name-colored font-bold"></span></p>
+                <p id="sticky-total-price" class="text-xs text-slate-500 font-bold mt-0.5">Total: R$ 19,90</p>
+            </div>
+            <button onclick="document.getElementById('checkout-summary-wrapper').scrollIntoView({behavior: 'smooth'})" class="btn-pill flex-1 md:flex-none md:w-80 bg-gradient-to-r from-brand-yellow to-yellow-400 text-brand-dark font-heading font-extrabold text-lg md:text-xl py-3.5 md:py-4 rounded-full shadow-[0_4px_15px_rgba(251,191,36,0.4)] hover:scale-[1.02] hover:shadow-[0_6px_20px_rgba(251,191,36,0.6)] border border-yellow-300 relative overflow-hidden group">
+                <span class="relative z-10">Finalizar Compra</span>
+                <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent w-1/2 h-full skew-x-12 group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- UPSELL POPUP (Audio -> Video Promo) -->
+    <div id="upsell-popup" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-3xl w-full max-w-md p-8 relative shadow-2xl text-center transform scale-95 opacity-0 transition-all duration-300 upsell-popup-content">
+            <button onclick="closeUpsellPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 rounded-full p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+            
+            <div class="w-16 h-16 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="video" class="w-8 h-8"></i>
+            </div>
+            
+            <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-brand-dark mb-2">Espere! Que tal ver o sorriso <span class="dyn-prep-de">da</span> <span class="dyn-name-colored font-bold text-brand-purple"></span>?</h2>
+            <p class="text-slate-600 mb-6 font-medium text-sm">O Áudio é legal, mas a reação de ver o personagem em <strong>Vídeo Animado</strong> não tem preço!<br><br>Leve o <strong>Vídeo Mágico</strong> agora com desconto especial.</p>
+            
+            <div class="bg-slate-50 border-2 border-brand-yellow rounded-xl py-3 mb-6 flex flex-col items-center justify-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-brand-yellow text-brand-dark text-[10px] font-black px-2 py-0.5 rounded-bl-lg">OFERTA ÚNICA</div>
+                <span class="text-slate-400 line-through text-sm font-bold mt-2">De R$ 19,90</span>
+                <span class="font-black text-2xl text-brand-dark">Por apenas R$ 14,90</span>
+            </div>
+            
+            <button onclick="acceptUpsell()" class="btn-pill w-full bg-brand-yellow text-brand-dark font-heading font-extrabold text-xl py-4 rounded-full flex items-center justify-center gap-2 hover:bg-yellow-400 shadow-[0_0_20px_rgba(251,191,36,0.4)] mb-3">
+                Sim, quero o Vídeo!
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+            </button>
+            <button onclick="closeUpsellPopup()" class="text-xs font-bold text-slate-400 hover:text-slate-600 underline">
+                Não, obrigado. Vou ficar só com o Áudio.
+            </button>
+        </div>
+    </div>
+
+    <!-- EXIT INTENT POPUP -->
+    <div id="exit-popup" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-3xl w-full max-w-md p-8 relative shadow-2xl text-center transform scale-95 opacity-0 transition-all duration-300 popup-content">
+            <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 bg-slate-100 rounded-full p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+            
+            <div class="w-16 h-16 bg-brand-pink/10 text-brand-pink rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="gift" class="w-8 h-8"></i>
+            </div>
+            
+            <h2 class="font-heading text-3xl font-extrabold text-brand-dark mb-2">Espere! Não vá embora...</h2>
+            <p class="text-slate-600 mb-6 font-medium text-sm">A mágica para <span class="dyn-name-colored font-bold"></span> está quase pronta.<br>Finalize agora e ganhe <strong>15% de Desconto Especial!</strong></p>
+            
+            <div class="bg-slate-50 border-2 border-dashed border-brand-purple rounded-xl py-3 mb-6">
+                <span class="font-mono text-xl font-bold text-brand-purple tracking-widest">MAGIA15</span>
+            </div>
+            
+            <button onclick="applyExitDiscount()" class="btn-pill w-full bg-brand-purple text-white font-heading font-bold text-xl py-4 rounded-full flex items-center justify-center gap-2 hover:bg-purple-600 shadow-[0_0_20px_rgba(139,92,246,0.4)]">
+                Pegar meu desconto
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+            </button>
+            <button onclick="closeExitPopup()" class="mt-4 text-xs font-bold text-slate-400 hover:text-slate-600 underline">
+                Não, prefiro pagar o preço normal
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        window.upsellShown = false;
+
+        // ------------------
+        // Timer Logic
+        // ------------------
+        let timeInSecs = 15 * 60;
+        setInterval(() => {
+            if(timeInSecs > 0) timeInSecs--;
+            let m = Math.floor(timeInSecs / 60);
+            let s = timeInSecs % 60;
+            document.querySelectorAll('#top-timer').forEach(el => el.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`);
+        }, 1000);
+
+        // ------------------
+        // State Management
+        // ------------------
+        const userData = {
+            plan: '',
+            quality: '',
+            name: '',
+            age: '',
+            gender: '',
+            character: '',
+            interests: [],
+            achievement: '',
+            city: ''
+        };
+
+        const totalSteps = 11; 
+        let currentStepNum = 0;
+        const stepHistory = [];
+        window.couponApplied = false;
+
+        // ------------------
+        // Database de Personagens
+        // ------------------
+        const charactersDB = [
+            { name: 'Homem-Aranha', tag: 'Marvel', textColorClass: 'text-red-600', img: 'https://placehold.co/400x500/fef2f2/ef4444?text=Aranha' },
+            { name: 'Capitão América', tag: 'Marvel', textColorClass: 'text-red-600', img: 'https://placehold.co/400x500/fef2f2/ef4444?text=Capitao' },
+            { name: 'Elsa', tag: 'Disney', textColorClass: 'text-blue-600', img: 'https://placehold.co/400x500/eff6ff/3b82f6?text=Elsa' },
+            { name: 'Moana', tag: 'Disney', textColorClass: 'text-blue-600', img: 'https://placehold.co/400x500/eff6ff/3b82f6?text=Moana' },
+            { name: 'Chase', tag: 'Patrulha', textColorClass: 'text-yellow-600', img: 'https://placehold.co/400x500/fefce8/eab308?text=Chase' },
+            { name: 'Skye', tag: 'Patrulha', textColorClass: 'text-pink-500', img: 'https://placehold.co/400x500/fdf2f8/ec4899?text=Skye' },
+            { name: 'Steve', tag: 'Minecraft', textColorClass: 'text-emerald-600', img: 'https://placehold.co/400x500/ecfdf5/10b981?text=Steve' },
+            { name: 'Sonic', tag: 'Jogos', textColorClass: 'text-blue-600', img: 'https://placehold.co/400x500/eff6ff/3b82f6?text=Sonic' },
+            { name: 'Peppa Pig', tag: 'Peppa', textColorClass: 'text-pink-600', img: 'https://placehold.co/400x500/fdf2f8/ec4899?text=Peppa' },
+            { name: 'T-Rex', tag: 'Dinossauro', textColorClass: 'text-orange-600', img: 'https://placehold.co/400x500/fff7ed/f97316?text=T-Rex' },
+            { name: 'Goku', tag: 'Anime', textColorClass: 'text-orange-600', img: 'https://placehold.co/400x500/fff7ed/f97316?text=Goku' },
+            { name: 'CR7', tag: 'Futebol', textColorClass: 'text-teal-600', img: 'https://placehold.co/400x500/f0fdfa/14b8a6?text=CR7' },
+        ];
+
+        function renderCharacters(lista) {
+            const grid = document.getElementById('characters-list-grid');
+            
+            if (lista.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500">Nenhum personagem encontrado.</div>`;
+                return;
+            }
+
+            grid.innerHTML = lista.map(char => `
+                <button onclick="selectCharacter('${char.name}')" class="relative bg-white border-2 border-slate-100 rounded-[2rem] overflow-hidden hover:border-brand-purple hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left group flex flex-col w-full h-full">
+                    
+                    <div class="w-full aspect-[4/5] bg-slate-100 relative overflow-hidden">
+                        <img src="${char.img}" alt="${char.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        
+                        <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest shadow-sm backdrop-blur-md bg-white/90 ${char.textColorClass}">
+                            ${char.tag}
+                        </div>
+                    </div>
+                    
+                    <div class="w-full p-4 md:p-5 flex flex-col items-center justify-center bg-white z-10 relative flex-1">
+                        <h3 class="font-heading font-extrabold text-slate-800 text-base md:text-lg truncate w-full text-center">${char.name}</h3>
+                        <div class="mt-2 text-[10px] md:text-xs font-bold text-slate-400 group-hover:text-brand-purple transition-colors flex items-center gap-1">
+                            ESCOLHER <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </div>
+                    </div>
+                </button>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function filterCharacters() {
+            const termo = document.getElementById('char-search').value.toLowerCase();
+            const filtrados = charactersDB.filter(c => 
+                c.name.toLowerCase().includes(termo) || 
+                c.tag.toLowerCase().includes(termo)
+            );
+            renderCharacters(filtrados);
+        }
+
+        function selectCharacter(nome) {
+            userData.character = nome;
+            nextStep(7); 
+        }
+
+        function selectOption(key, value, nextStepNum) {
+            userData[key] = value;
+            nextStep(nextStepNum);
+        }
+
+        function selectPlan(planId) {
+            userData.plan = planId;
+            document.querySelectorAll('.plan-btn').forEach(btn => {
+                btn.classList.remove('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+                btn.classList.add('bg-white', 'border-slate-200');
+            });
+            // highlight logic
+            const safePlanId = planId.replace('_promo', '');
+            const activeBtn = document.getElementById(`plan-${safePlanId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border-slate-200');
+                activeBtn.classList.add('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+            }
+
+            if (planId === 'audio' && !window.upsellShown) {
+                window.upsellShown = true;
+                showUpsellPopup();
+            } else {
+                updateCheckoutSummary();
+            }
+        }
+
+        function selectPlanAndScroll(planId) {
+            selectPlan(planId);
+            if (planId !== 'audio' || window.upsellShown) {
+                const wrapper = document.getElementById('checkout-summary-wrapper');
+                if (wrapper) wrapper.scrollIntoView({behavior: 'smooth'});
+            }
+        }
+
+        function selectQuality(qualityId) {
+            userData.quality = qualityId;
+            document.querySelectorAll('.quality-btn').forEach(btn => {
+                btn.classList.remove('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+                btn.classList.add('bg-white', 'border-slate-200');
+            });
+            const activeBtn = document.getElementById(`quality-${qualityId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border-slate-200');
+                activeBtn.classList.add('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+            }
+        }
+
+        // ------------------
+        // Navigation Logic
+        // ------------------
+        function startQuiz() {
+            document.getElementById('step-0').classList.add('hidden');
+            document.getElementById('step-0').classList.remove('flex');
+            document.getElementById('quiz-header').classList.remove('hidden');
+            
+            const video = document.getElementById('hero-video');
+            if (video) video.pause();
+            
+            // Pausa qualquer depoimento tocando
+            document.querySelectorAll('.video-slider video').forEach(v => v.pause());
+
+            showStep(1);
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.step-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('flex');
+            });
+            
+            const target = document.getElementById(`step-${step}`);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('flex');
+            }
+
+            if (step >= 1 && step <= totalSteps) {
+                const progress = ((step - 1) / totalSteps) * 100;
+                document.getElementById('progress-bar').style.width = `${progress}%`;
+            }
+
+            if(step === 11) {
+                document.getElementById('global-footer').classList.add('pb-32');
+            } else {
+                document.getElementById('global-footer').classList.remove('pb-32');
+            }
+
+            currentStepNum = step;
+            updateDynamicText();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextStep(step, validationFunc = null) {
+            if (validationFunc && !validationFunc()) {
+                return; 
+            }
+            stepHistory.push(currentStepNum);
+            showStep(step);
+        }
+
+        function goBack() {
+            if (stepHistory.length > 0) {
+                const prev = stepHistory.pop();
+                showStep(prev);
+            } else {
+                document.getElementById('quiz-header').classList.add('hidden');
+                showStep(0);
+                const video = document.getElementById('hero-video');
+                // Quando volta pra home, tenta tocar de novo silenciosamente.
+                if(video) video.play().catch(e=>e);
+            }
+        }
+
+        // ------------------
+        // Validations
+        // ------------------
+        function triggerError(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.add('error-shake');
+                setTimeout(() => el.classList.remove('error-shake'), 400);
+            }
+        }
+
+        function validatePlan() {
+            if (!userData.plan) {
+                document.querySelectorAll('.plan-btn').forEach(btn => triggerError(btn.id));
+                return false;
+            }
+            return true;
+        }
+
+        function validateQuality() {
+            if (!userData.quality) {
+                document.querySelectorAll('.quality-btn').forEach(btn => triggerError(btn.id));
+                return false;
+            }
+            return true;
+        }
+
+        function validateName() {
+            const input = document.getElementById('input-name').value.trim();
+            if (input.length < 2) {
+                triggerError('input-name');
+                return false;
+            }
+            userData.name = input;
+            return true;
+        }
+
+        function validateAge() {
+            const select = document.getElementById('input-age');
+            if (!select.value) {
+                triggerError('input-age');
+                return false;
+            }
+            userData.age = select.value;
+            return true;
+        }
+
+        function validateInterests() {
+            const customInput = document.getElementById('input-custom-interest').value.trim();
+            if (customInput && !userData.interests.includes(customInput)) {
+                userData.interests.push(customInput);
+            }
+
+            if (userData.interests.length === 0) {
+                document.querySelectorAll('.interest-btn').forEach(btn => {
+                    btn.classList.add('error-shake');
+                    setTimeout(() => btn.classList.remove('error-shake'), 400);
+                });
+                const inputField = document.getElementById('input-custom-interest');
+                inputField.classList.add('error-shake');
+                setTimeout(() => inputField.classList.remove('error-shake'), 400);
+                return false;
+            }
+            return true;
+        }
+
+        function validateAchievement() {
+            const input = document.getElementById('input-achievement').value.trim();
+            if (input.length < 3) {
+                triggerError('input-achievement');
+                return false;
+            }
+            userData.achievement = input;
+            return true;
+        }
+
+        function validateCity() {
+            const input = document.getElementById('input-city').value.trim();
+            if (input.length < 2) {
+                triggerError('input-city');
+                return false;
+            }
+            userData.city = input;
+            return true;
+        }
+
+        function skipCity() {
+            userData.city = '';
+            startGeneration(true);
+        }
+
+        // ------------------
+        // Options & Logic
+        // ------------------
+        function toggleInterest(btn, value) {
+            const index = userData.interests.indexOf(value);
+            if (index > -1) {
+                userData.interests.splice(index, 1);
+                btn.classList.remove('selected', 'bg-purple-50', 'border-brand-purple', 'text-brand-purple');
+                btn.classList.add('bg-white', 'border-slate-200', 'text-slate-600');
+            } else {
+                if (userData.interests.length < 3) {
+                    userData.interests.push(value);
+                    btn.classList.add('selected', 'bg-purple-50', 'border-brand-purple', 'text-brand-purple');
+                    btn.classList.remove('bg-white', 'border-slate-200', 'text-slate-600');
+                } else {
+                    triggerError(btn.id || btn); 
+                }
+            }
+        }
+
+        function updateDynamicText() {
+            const name = userData.name || 'criança';
+            const gender = userData.gender || 'F';
+            
+            let prepDe = 'da ';
+            let artName = 'a ';
+            let filhoText = 'sua criança';
+
+            if (userData.name) {
+                prepDe = gender === 'M' ? 'do ' : 'da ';
+                artName = gender === 'M' ? 'o ' : 'a ';
+                filhoText = gender === 'M' ? 'seu filho' : 'sua filha';
+            }
+
+            document.querySelectorAll('.dyn-name').forEach(el => el.textContent = name);
+            document.querySelectorAll('.dyn-name-colored').forEach(el => el.innerHTML = `<span class="text-brand-purple font-bold">${name}</span>`);
+            document.querySelectorAll('.dyn-name-de').forEach(el => el.innerHTML = `${prepDe}<span class="text-brand-purple font-bold">${name}</span>`);
+            document.querySelectorAll('.dyn-art-name').forEach(el => el.innerHTML = `${artName}<span class="text-brand-purple font-bold">${name}</span>`);
+            document.querySelectorAll('.dyn-art').forEach(el => el.textContent = artName);
+            document.querySelectorAll('.dyn-prep-de').forEach(el => el.textContent = prepDe);
+            document.querySelectorAll('.dyn-filho').forEach(el => el.textContent = filhoText);
+            
+            document.querySelectorAll('.dyn-char').forEach(el => el.textContent = userData.character || 'Personagem');
+            document.querySelectorAll('.dyn-interests').forEach(el => el.textContent = userData.interests.join(', ') || 'brincar');
+            document.querySelectorAll('.dyn-achieve').forEach(el => el.textContent = userData.achievement || 'ser tão especial');
+            
+            document.querySelectorAll('.dyn-city-text').forEach(el => {
+                if(userData.city) {
+                    el.style.display = 'inline';
+                    document.querySelectorAll('.dyn-city').forEach(c => c.textContent = userData.city);
+                } else {
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        function applyCoupon() {
+            const couponInput = document.getElementById('input-coupon').value.trim().toUpperCase();
+            if (couponInput === 'MAGIA15' && !window.couponApplied) {
+                window.couponApplied = true;
+                updateCheckoutSummary();
+                const btn = document.getElementById('btn-apply-coupon');
+                if (btn) {
+                    btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Aplicado';
+                    btn.classList.replace('bg-slate-200', 'bg-brand-green');
+                    btn.classList.replace('text-slate-700', 'text-white');
+                    lucide.createIcons();
+                }
+            } else if (couponInput !== 'MAGIA15') {
+                triggerError('input-coupon');
+            }
+        }
+
+        function updateCheckoutSummary() {
+            const planDetails = {
+                'audio': { title: 'Áudio Mágico', desc: 'Apenas mensagem de voz', price: 9.90 },
+                'video': { title: 'Vídeo Mágico', desc: 'Imagem animada + Voz', price: 19.90 },
+                'video_promo': { title: 'Vídeo Mágico (Oferta)', desc: 'Imagem animada + Voz', price: 14.90 },
+                'premium': { title: 'Pacote Premium', desc: 'A experiência completa', price: 29.90 }
+            };
+            
+            const plan = planDetails[userData.plan || 'video'];
+            const qPrice = userData.quality === 'ultra' ? 5.98 : 0;
+            let total = plan.price + qPrice;
+            let originalTotal = total;
+            
+            if (window.couponApplied) {
+                total = total * 0.85; // 15% discount
+            }
+            
+            const planTitleEl = document.getElementById('summary-plan-title');
+            const planDescEl = document.getElementById('summary-plan-desc');
+            const planPriceEl = document.getElementById('summary-plan-price');
+            
+            if(planTitleEl) planTitleEl.textContent = plan.title;
+            if(planDescEl) planDescEl.textContent = plan.desc;
+            if(planPriceEl) planPriceEl.textContent = `R$ ${plan.price.toFixed(2).replace('.', ',')}`;
+            
+            const qRow = document.getElementById('summary-quality-row');
+            if (qRow) {
+                if (userData.quality === 'ultra') {
+                    qRow.classList.remove('hidden');
+                    qRow.classList.add('flex');
+                } else {
+                    qRow.classList.add('hidden');
+                    qRow.classList.remove('flex');
+                }
+            }
+            
+            const totalEl = document.getElementById('summary-total-price');
+            if (totalEl) {
+                if (window.couponApplied) {
+                    totalEl.innerHTML = `<span class="text-xl text-slate-400 line-through mr-2 font-medium">R$ ${originalTotal.toFixed(2).replace('.', ',')}</span>R$ ${total.toFixed(2).replace('.', ',')}`;
+                } else {
+                    totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                }
+            }
+            
+            const stickyPrice = document.getElementById('sticky-total-price');
+            if(stickyPrice) stickyPrice.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // ------------------
+        // Generation Animation
+        // ------------------
+        function startGeneration(skipValidation = false) {
+            if (!skipValidation && !validateCity()) return;
+
+            document.getElementById('quiz-header').classList.add('hidden'); 
+            stepHistory.push(currentStepNum);
+            showStep(10); 
+
+            const genProgress = document.getElementById('gen-progress');
+            const steps = document.querySelectorAll('.gen-step');
+            
+            setTimeout(() => { genProgress.style.width = '100%'; }, 100);
+
+            setTimeout(() => { steps[0].classList.remove('hidden'); steps[0].classList.add('animate-fade-in-up'); }, 800);
+            setTimeout(() => { steps[1].classList.remove('hidden'); steps[1].classList.add('animate-fade-in-up'); }, 2200);
+            setTimeout(() => { steps[2].classList.remove('hidden'); steps[2].classList.add('animate-fade-in-up'); }, 3800);
+
+            setTimeout(() => {
+                updateCheckoutSummary();
+                showStep(11);
+                showStickyCta();
+            }, 5200);
+        }
+
+        // ------------------
+        // Utilities & Popups
+        // ------------------
+        function toggleFaq(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function showStickyCta() {
+            const sticky = document.getElementById('sticky-cta');
+            sticky.classList.remove('hidden');
+            setTimeout(() => { sticky.classList.remove('translate-y-full'); }, 100);
+
+            const checkoutWrapper = document.getElementById('checkout-summary-wrapper');
+            if (checkoutWrapper && !window.planosObserver) {
+                window.planosObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (currentStepNum === 11) {
+                            if (entry.isIntersecting) {
+                                sticky.classList.add('translate-y-full'); 
+                            } else {
+                                sticky.classList.remove('translate-y-full'); 
+                            }
+                        }
+                    });
+                }, { threshold: 0.05 });
+                window.planosObserver.observe(checkoutWrapper);
+            }
+        }
+
+        // Logic for Upsell Popup (Audio -> Video)
+        function showUpsellPopup() {
+            const popup = document.getElementById('upsell-popup');
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            setTimeout(() => {
+                popup.classList.remove('opacity-0');
+                popup.querySelector('.upsell-popup-content').classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        function closeUpsellPopup() {
+            const popup = document.getElementById('upsell-popup');
+            popup.querySelector('.upsell-popup-content').classList.add('scale-95', 'opacity-0');
+            popup.classList.add('opacity-0');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+                popup.classList.remove('flex');
+                updateCheckoutSummary();
+                if (currentStepNum === 11) {
+                    const wrapper = document.getElementById('checkout-summary-wrapper');
+                    if (wrapper) wrapper.scrollIntoView({behavior: 'smooth'});
+                }
+            }, 300);
+        }
+
+        function acceptUpsell() {
+            userData.plan = 'video_promo';
+            document.querySelectorAll('.plan-btn').forEach(btn => {
+                btn.classList.remove('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+                btn.classList.add('bg-white', 'border-slate-200');
+            });
+            const activeBtn = document.getElementById('plan-video');
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'border-slate-200');
+                activeBtn.classList.add('border-brand-purple', 'bg-purple-50', 'ring-4', 'ring-brand-purple/10');
+            }
+            updateCheckoutSummary();
+            closeUpsellPopup();
+        }
+
+        // Logic for Exit Intent Popup
+        let popupShown = false;
+
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && currentStepNum === 11 && !popupShown && !window.couponApplied) {
+                showExitPopup();
+            }
+        });
+
+        let lastScrollY = window.scrollY;
+        document.addEventListener('scroll', () => {
+            if (currentStepNum === 11 && !popupShown && !window.couponApplied) {
+                if (lastScrollY - window.scrollY > 150) { 
+                    showExitPopup();
+                }
+            }
+            lastScrollY = window.scrollY;
+        });
+
+        function showExitPopup() {
+            popupShown = true;
+            const popup = document.getElementById('exit-popup');
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            
+            setTimeout(() => {
+                popup.classList.remove('opacity-0');
+                popup.querySelector('.popup-content').classList.remove('scale-95', 'opacity-0');
+            }, 10);
+        }
+
+        function closeExitPopup() {
+            const popup = document.getElementById('exit-popup');
+            popup.querySelector('.popup-content').classList.add('scale-95', 'opacity-0');
+            popup.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                popup.classList.add('hidden');
+                popup.classList.remove('flex');
+            }, 300);
+        }
+
+        function applyExitDiscount() {
+            closeExitPopup();
+            const couponInput = document.getElementById('input-coupon');
+            if (couponInput) couponInput.value = 'MAGIA15';
+            applyCoupon();
+        }
+
+    </script>
+</body>
+</html>
